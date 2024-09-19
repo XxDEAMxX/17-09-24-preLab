@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Letter Generator</title>
+</head>
+<body>
+    <h1>Random Letter</h1>
+    <button onclick="getRandomLetter()">Get Random Letter</button>
+    <p id="letter"></p>
+
+    <script>
+        function getRandomLetter() {
+            fetch('http://localhost:3000')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('letter').innerText = data.letter;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
